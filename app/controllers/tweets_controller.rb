@@ -33,7 +33,7 @@ class TweetsController < ApplicationController
     if logged_in? && (session[:user_id] == @tweet.user.id)
       binding.pry
       erb :'tweets/edit'
-    elsif logged_in? && (session[:user_id] == @tweet.user.id)
+    elsif logged_in? && (session[:user_id] != @tweet.user.id)
       redirect '/tweets'
     else
       redirect '/login'
