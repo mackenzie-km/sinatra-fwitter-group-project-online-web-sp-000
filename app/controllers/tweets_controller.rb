@@ -50,14 +50,14 @@ class TweetsController < ApplicationController
 
     patch '/tweets/:id' do
       @tweet = Tweet.find(params[:id])
-      if logged_in? && (params[:content] != "")
+      if !logged_in?
+        redirect '/login'
+      elsif logged_in? && (params[:content] != "")
         @tweet.content = params[:content]
         @tweet.save
         erb :'tweets/show'
-      elsif logged_in? && (params[:content] == "")
-        redirect "/tweets/#{@tweet.id}/edit"
       else
-        redirect '/login'
+        redirect "/tweets/#{@tweet.id}/edit"
       end
     end
 
