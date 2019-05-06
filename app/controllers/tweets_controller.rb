@@ -45,7 +45,7 @@ class TweetsController < ApplicationController
         @tweet.save
         erb :'tweets/show'
       elsif logged_in? && params[:content] == ""
-        redirect '/tweets/edit'
+        redirect '/tweets/:id/edit'
       else
         redirect '/login'
       end
