@@ -49,7 +49,6 @@ class TweetsController < ApplicationController
     end
 
     patch '/tweets/:id' do
-
       if logged_in? && params[:content] == ""
         @tweet.content = params[:content]
         @tweet.save
