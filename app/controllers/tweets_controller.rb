@@ -49,8 +49,7 @@ class TweetsController < ApplicationController
     end
 
     patch '/tweets/:id' do
-      binding.pry
-      if logged_in? && params[:content] == ""
+      if logged_in? && params[:content] != ""
         @tweet = Tweet.find(params[:id])
         @tweet.content = params[:content]
         @tweet.save
