@@ -18,7 +18,7 @@ class TweetsController < ApplicationController
   end
 
   post '/tweets' do
-    if logged_in? && params[:content] != ""
+    if logged_in? && params[:content] != "" 
       @tweet = Tweet.create(content: params[:content], user_id: session[:user_id])
       erb :'tweets/show'
     elsif logged_in? && params[:content] == ""
