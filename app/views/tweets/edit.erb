@@ -1,6 +1,6 @@
 <h1> Edit a tweet </h1>
 
-<h2><%= @tweet.content %></h2>
+<h2><%=             binding.pry @tweet.content %></h2>
 
 <form action="<% "/tweets/#{@tweet.id}" %>" method="POST">
     <input id="hidden" type="hidden" name="_method" value="PATCH">
