@@ -63,7 +63,7 @@ class TweetsController < ApplicationController
       end
     end
 
-  post '/tweets/delete' do
+  delete '/tweets/:id' do
     if logged_in?
       @tweet = Tweet.find(params[:id])
       @tweet.delete
