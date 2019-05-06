@@ -18,7 +18,7 @@ class TweetsController < ApplicationController
   end
 
   post '/tweets' do
-    if logged_in? && params[:content] != "" 
+    if logged_in? && params[:content] != ""
       @tweet = Tweet.create(content: params[:content], user_id: session[:user_id])
       erb :'tweets/show'
     elsif logged_in? && params[:content] == ""
@@ -51,7 +51,7 @@ class TweetsController < ApplicationController
 
     patch '/tweets/:id' do
       if logged_in? && params[:content] == ""
-        @tweet = Tweet.update(content: params[:content], user_id: session[:user_id])
+        @tweet = Tweet.update(content: params[:content])
         erb :'tweets/show'
       elsif logged_in? && params[:content] == ""
         redirect '/tweets/edit'
