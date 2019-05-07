@@ -63,9 +63,6 @@ class TweetsController < ApplicationController
     end
   end
 
-    get '/tweets/:id/delete' do
-    end
-
   delete '/tweets/:id' do
     if logged_in?
       @tweet = Tweet.find(params[:id])
